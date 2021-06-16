@@ -1,0 +1,13 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class OverviewView {
+    #data;
+    #message;
+    render(data) {
+        console.log(data);
+    }
+    addHandleLoadOverview() {
+    //   _renderHits
+    }
+}
+exports.default = new OverviewView();

@@ -1,0 +1,29 @@
+var $634f916bc30b7d6650877f3f4b6a8b3a$export$da289beea9c5b10d;
+var $634f916bc30b7d6650877f3f4b6a8b3a$export$59e5c324fe003148;
+var $634f916bc30b7d6650877f3f4b6a8b3a$export$1b6c708f518305b4;
+"use strict";
+/* globals document:readonly */ var $634f916bc30b7d6650877f3f4b6a8b3a$var$bundleURL = null;
+function $634f916bc30b7d6650877f3f4b6a8b3a$var$getBundleURLCached() {
+    if (!$634f916bc30b7d6650877f3f4b6a8b3a$var$bundleURL) $634f916bc30b7d6650877f3f4b6a8b3a$var$bundleURL = $634f916bc30b7d6650877f3f4b6a8b3a$var$getBundleURL();
+    return $634f916bc30b7d6650877f3f4b6a8b3a$var$bundleURL;
+}
+function $634f916bc30b7d6650877f3f4b6a8b3a$var$getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) return $634f916bc30b7d6650877f3f4b6a8b3a$var$getBaseURL(matches[0]);
+    }
+    return '/';
+}
+function $634f916bc30b7d6650877f3f4b6a8b3a$var$getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function $634f916bc30b7d6650877f3f4b6a8b3a$var$getOrigin(url) {
+    let matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+$634f916bc30b7d6650877f3f4b6a8b3a$export$da289beea9c5b10d = $634f916bc30b7d6650877f3f4b6a8b3a$var$getBundleURLCached;
+$634f916bc30b7d6650877f3f4b6a8b3a$export$59e5c324fe003148 = $634f916bc30b7d6650877f3f4b6a8b3a$var$getBaseURL;
+$634f916bc30b7d6650877f3f4b6a8b3a$export$1b6c708f518305b4 = $634f916bc30b7d6650877f3f4b6a8b3a$var$getOrigin;

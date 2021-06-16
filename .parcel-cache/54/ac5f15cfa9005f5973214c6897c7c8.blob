@@ -1,0 +1,39 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state
+);
+parcelHelpers.export(exports, "loadImages", ()=>loadImages
+);
+parcelHelpers.export(exports, "loadSearchImages", ()=>loadSearchImages
+);
+var _configJs = require("../config.js");
+var _helpersJs = require("../helpers.js");
+const state = {
+    hits: [],
+    totalHits: 0,
+    totalResult: _configJs.TOTAL_RESULTS,
+    query: "",
+    page: 1,
+    initPage: 1
+};
+const getDataState = function(hits, totalHits, page) {
+    state.hits = hits;
+    state.totalHits = totalHits;
+    state.page = page;
+};
+const loadImages = async function(goToPage = state.initPage) {
+    try {
+        const data = await _helpersJs.getJSON(`${_configJs.API_URL}&page=${goToPage}`);
+        getDataState(data.hits, data.totalHits, parseInt(Math.ceil(state.totalHits / state.totalResult)));
+    } catch (error) {
+        throw error;
+    }
+};
+const loadSearchImages = async function(goToPage = state.initPage, query) {
+    try {
+        const data = await _helpersJs.getJSON(`${_configJs.API_URL}&page=${goToPage}&q="${query}"`);
+        getDataState(data.hits, data.totalHits, parseInt(Math.ceil(state.totalHits / state.totalResult)));
+    } catch (error) {
+        throw error;
+    }
+};

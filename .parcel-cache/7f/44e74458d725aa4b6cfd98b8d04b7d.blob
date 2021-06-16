@@ -1,0 +1,11 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _previewModelJs = require("../models/previewModel.js");
+var _searchViewJs = require("../views/searchView.js");
+var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
+const controllerSearch = function() {
+    console.log("se ejecuta");
+};
+const init = function() {
+    _searchViewJsDefault.default.addHandleSearchClick(controllerSearch);
+};
+init();

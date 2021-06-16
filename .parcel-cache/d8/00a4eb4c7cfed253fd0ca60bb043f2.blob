@@ -1,0 +1,20 @@
+import   "df7046c04f597bc3ca70999db58035f3:./view.js";
+class $df7046c04f597bc3ca70999db58035f3$var$SearchView extends $df7046c04f597bc3ca70999db58035f3$import$3a01e6f11c9abbf9$9099ad97b570f7c {
+    _parentElement = document.querySelector('.search');
+    message = "No results found, please try another name";
+    getQuery() {
+        const query = this._parentElement.querySelector('.search__input').value;
+        this._clearInputValue();
+        return query;
+    }
+    _clearInputValue() {
+        this._parentElement.querySelector('.search__input').value = "";
+    }
+    addHandleSearchClick(handle) {
+        this._parentElement.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handle();
+        });
+    }
+}
+var $df7046c04f597bc3ca70999db58035f3$export$9099ad97b570f7c = new $df7046c04f597bc3ca70999db58035f3$var$SearchView();

@@ -1,0 +1,17 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+//TODO: terminar la paginacion
+class PaginationView extends _viewDefault.default {
+    _parentElement = document.querySelector('.pagination');
+    // addhandleLoadPagination(){
+    //   window.addEventListener('load', function() {
+    //     console 
+    //   });
+    // }
+    _generateMarkup() {
+        return `\n            <button class="btn">\n                Page\n            </button>\n        `;
+    }
+}
+exports.default = new PaginationView();

@@ -1,0 +1,10 @@
+var _overviewModelJs = require("../models/overviewModel.js");
+const controllerOverview = async function() {
+    try {
+        const result = await _overviewModelJs.loadImages();
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+};
+controllerOverview();

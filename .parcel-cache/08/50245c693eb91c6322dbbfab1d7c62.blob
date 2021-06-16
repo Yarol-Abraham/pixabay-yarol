@@ -1,0 +1,26 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _overviewModelJs = require("../models/overviewModel.js");
+var _overviewViewJs = require("../views/overviewView.js");
+var _overviewViewJsDefault = parcelHelpers.interopDefault(_overviewViewJs);
+var _paginationViewJs = require("../views/paginationView.js");
+var _paginationViewJsDefault = parcelHelpers.interopDefault(_paginationViewJs);
+if (module.hot) module.hot.accept();
+const controllerOverview = async function() {
+    try {
+        _overviewViewJsDefault.default.renderSpinner();
+        await _overviewModelJs.loadImages();
+        _overviewViewJsDefault.default.render(_overviewModelJs.state.hits);
+    } catch (error) {
+        _overviewViewJsDefault.default.renderError();
+    }
+};
+const controllerPagination = async function() {
+    // paginationView.render(model.getSearchResultsPage());
+    console.log(_overviewModelJs.state);
+    const res = _overviewModelJs.getSearchResultsPage();
+};
+const init = function() {
+    _overviewViewJsDefault.default.addHandleLoadOverview(controllerOverview);
+    controllerPagination();
+};
+init();

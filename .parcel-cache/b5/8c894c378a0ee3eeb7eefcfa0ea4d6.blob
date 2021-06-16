@@ -1,0 +1,23 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./view");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+class PaginationView extends _viewDefault.default {
+    _parentElement = document.querySelector('.pagination');
+    _generateMarkup() {
+        let html = "";
+        for(let i = 1; i <= this._data.page; ++i)html += this._generateButtonsMarkup(i);
+        return html;
+    }
+    _generateButtonsMarkup(page) {
+        return `\n            <button data-page="${page}" class="btn btn--pagination">\n                ${page} \n            </button>\n        `;
+    }
+    addHandleClickPagination(handle) {
+        this._parentElement.addEventListener('click', function(e) {
+            const btn = e.target.closest('.btn');
+            if (!btn) return;
+            handle(+btn.dataset.page, true);
+        });
+    }
+}
+exports.default = new PaginationView();

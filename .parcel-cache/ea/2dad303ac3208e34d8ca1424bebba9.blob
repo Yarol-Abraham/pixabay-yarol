@@ -1,0 +1,34 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state
+);
+parcelHelpers.export(exports, "loadImages", ()=>loadImages
+);
+parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage
+);
+var _configJs = require("../config.js");
+var _helpersJs = require("../helpers.js");
+const state = {
+    hits: [],
+    search: {
+        query: "",
+        page: 1,
+        results: [],
+        resultsPerPage: _configJs.RESULTS_PER_PAGE
+    }
+};
+const loadImages = async function() {
+    try {
+        const data = await _helpersJs.getJSON(_configJs.API_URL);
+        state.hits = data.hits;
+    } catch (error) {
+        throw error;
+    }
+};
+const getSearchResultsPage = function(page = state.search.page) {
+    state.search.page = page;
+    const start = (page - 1) * state.search.resultsPerPage;
+    const end = page * state.search.resultsPerPage;
+    console.log(state.search.results.slice(start, end));
+    return state.search.results.slice(start, end);
+};

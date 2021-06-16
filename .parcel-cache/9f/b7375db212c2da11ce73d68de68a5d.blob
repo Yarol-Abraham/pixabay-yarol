@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica;
+  box-sizing: border-box;
+  background: #f6f7fb;
+}
+
+header {
+  height: 50vh;
+  padding: 1.2rem;
+}
+
+.header__logo-box {
+  height: 8rem;
+}
+
+.header__logo {
+  height: 3rem;
+}
+
+.header__text-box {
+  height: 13.8rem;
+  background-image: linear-gradient(to right bottom, #334680df, #1e87ff49), url(hero.HASH_REF_31e6d151e994f66ed233392785881c35.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-primary {
+  color: #f6f7fb;
+}
+
+.search {
+  width: 30rem;
+  display: flex;
+}
+
+.search input {
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.8rem;
+  width: 80%;
+}
+
+.search button {
+  width: 20%;
+  padding: 1rem;
+  background: #1e86ff;
+}
+
+.search button:hover {
+  background: #83bdff;
+}
+/*# sourceMappingURL=home.HASH_REF_e0963b0f03bc824eaa98382aab5cb716.css.map */

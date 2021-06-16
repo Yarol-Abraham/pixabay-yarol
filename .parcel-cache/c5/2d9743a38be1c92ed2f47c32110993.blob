@@ -1,0 +1,15 @@
+import   "73b9aef2cd69488b907f83bb5fda863f:./view.js";
+class $73b9aef2cd69488b907f83bb5fda863f$var$PreviewView extends $73b9aef2cd69488b907f83bb5fda863f$import$3a01e6f11c9abbf9$9099ad97b570f7c {
+    _parentElement = document.querySelector('.preview');
+    _generateMarkup() {
+        const { data: data , relations: { hits: hits  }  } = this._data;
+        return `\n        <div class="preview__image" >\n            <h1>${data.tags}</h1>\n            <img src="${data.largeImageURL}", alt="${data.tags}" />\n        </div>\n        <div class="preview__content">\n            <div class="preview__user">\n                <img src="${data.userImageURL}", alt="${data.user}" />\n                <a \n                    href="https://pixabay.com/users/${data.user}-${data.user_id}"\n                    target="_blank"    \n                >\n                    ${data.user}\n                </a>\n            </div>\n            <div class="preview__download">\n                <p>Free for commercial use, No attribution required</p>\n                <a href="${data.pageURL}" target="_blank" >Free Download</a>\n            </div>\n            <div class="preview__related--box">\n                <h1> Related Images </h1>\n                ${hits.map(this._generateRelationsMarkup).join('')}\n            </div>\n        </div>\n       `;
+    }
+    _generateRelationsMarkup(image) {
+        return `\n            <div class="relate--image">\n                <a href="/preview.html/?id=${image.id} ">\n                    <img src="${image.webformatURL}" />\n                </a>\n            </div>\n        `;
+    }
+    addHandleLoadPreview(handle) {
+        window.addEventListener('load', handle);
+    }
+}
+var $73b9aef2cd69488b907f83bb5fda863f$export$9099ad97b570f7c = new $73b9aef2cd69488b907f83bb5fda863f$var$PreviewView();

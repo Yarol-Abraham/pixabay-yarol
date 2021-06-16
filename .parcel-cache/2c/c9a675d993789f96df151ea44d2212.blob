@@ -1,0 +1,23 @@
+import   "1b558256bcff764c5dd9cd8dc36f356b:../config.js";
+import   "1b558256bcff764c5dd9cd8dc36f356b:../helpers.js";
+const $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3 = {
+    hits: [],
+    totalHits: 0,
+    totalResult: $1b558256bcff764c5dd9cd8dc36f356b$import$ee3852deae7e8a7b$a483f76ebdc05cdb,
+    query: "",
+    page: 1,
+    initPage: 1
+};
+const $1b558256bcff764c5dd9cd8dc36f356b$export$562ecab60b8c40eb = async function(goToPage = $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.initPage) {
+    try {
+        let url = `${$1b558256bcff764c5dd9cd8dc36f356b$import$ee3852deae7e8a7b$121552fae10d4c49}&page=${goToPage}`;
+        if ($1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.query) url = `${url}&q="${$1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.query}"`;
+        const data = await $1b558256bcff764c5dd9cd8dc36f356b$import$e464be84ccf4485b$578f55a5d60842ba(url);
+        if (data.totalHits === 0) throw new Error("No results found, please try another name");
+        $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.hits = data.hits;
+        $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.totalHits = data.totalHits;
+        $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.page = parseInt(Math.ceil($1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.totalHits / $1b558256bcff764c5dd9cd8dc36f356b$export$c837a8b98c265ae3.totalResult));
+    } catch (error) {
+        throw error;
+    }
+};

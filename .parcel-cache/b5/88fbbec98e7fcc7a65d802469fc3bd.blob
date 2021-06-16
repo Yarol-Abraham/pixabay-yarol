@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: red;
+}
+/*# sourceMappingURL=home.HASH_REF_e0963b0f03bc824eaa98382aab5cb716.css.map */

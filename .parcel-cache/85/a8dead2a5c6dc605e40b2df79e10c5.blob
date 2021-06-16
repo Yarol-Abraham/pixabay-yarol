@@ -1,0 +1,10 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    _data;
+    _message = "";
+    render(data) {
+        console.log(data);
+    }
+}
+exports.default = View;

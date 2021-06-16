@@ -1,0 +1,27 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _spinnerSvg = require("url:../../images/spinner.svg");
+var _spinnerSvgDefault = parcelHelpers.interopDefault(_spinnerSvg);
+class View {
+    _data;
+    render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const markup = this.generateMarkup();
+        this._clear();
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    }
+    _clear() {
+        this._parentElement.innerHTML = "";
+    }
+    renderSpinner() {
+        console.log("se ejecuta el spiner");
+        const markup = `\n          <div class="spinner">\n            <svg>\n              <use href="${_spinnerSvgDefault.default}"></use>\n            </svg>\n          </div>\n        `;
+        this._clear();
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    }
+    renderError(message = this.message) {
+        console.log(message);
+    }
+}
+exports.default = View;

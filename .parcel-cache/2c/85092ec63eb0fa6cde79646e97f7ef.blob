@@ -1,0 +1,43 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _cerrarSvg = require("url:../../images/cerrar.svg");
+var _cerrarSvgDefault = parcelHelpers.interopDefault(_cerrarSvg);
+class View {
+    _component = document.querySelector('.component');
+    _data;
+    render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const markup = this._generateMarkup();
+        this._clear();
+        this._parentElement.insertAdjacentHTML('afterbegin', markup);
+    }
+    update(data) {
+        this._data = data;
+        const newMarkup = this._generateMarkup();
+        const newDom = document.createRange().createContextualFragment(newMarkup);
+        const newElements = Array.from(newDom.querySelectorAll('*'));
+        const currentElements = Array.from(this._overviewElement.querySelectorAll('*'));
+        console.log(currentElements);
+    // newElements.forEach((newEl, i)=>{
+    //   const currentEl = currentElements[i];
+    //   console.log(currentEl);
+    //   console.log(newEl);
+    // });
+    }
+    _clear() {
+        this._parentElement.innerHTML = "";
+        this._component.innerHTML = "";
+    }
+    renderSpinner() {
+        const markup = `\n        <div class="lds-ring"><div></div><div></div><div></div><div>\n        `;
+        this._clear();
+        this._component.insertAdjacentHTML('afterbegin', markup);
+    }
+    renderError(message = this.message) {
+        const markup = `\n        <div class="error">\n          <div>\n            <img src="${_cerrarSvgDefault.default}" alt="error" />\n          </div>\n          <h1>${message}</h1>\n        </div>\n       `;
+        this._clear();
+        this._component.insertAdjacentHTML('afterbegin', markup);
+    }
+}
+exports.default = View;

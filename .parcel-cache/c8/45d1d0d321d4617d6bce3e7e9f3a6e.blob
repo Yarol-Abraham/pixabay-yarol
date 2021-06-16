@@ -1,1 +1,0 @@
-module.exports = require('./bundle-url').getBundleURL() + "spinner.HASH_REF_9d1eb136f472865774778cce6540296e.svg";

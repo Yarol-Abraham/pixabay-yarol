@@ -10,3 +10,7 @@ NOTE (important): Add file env.js and add your key
 Built with pug, vanilla js and generate with parcel
 
 website: <a href="https://pixabay-yarol.netlify.app/" target="_blank" >click to redirect</a>
+
+# PIXABAY - PREVIEW
+
+<img src="/pixabay.png" alt="preview" />
